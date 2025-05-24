@@ -62,13 +62,13 @@
         .header .underline {
             display: block;
             width: 300px; /* Width of the underline */
-            height: 4px; /* Thickness of the underline */
-            background: cyan; /* Cyan color */
+            height: 4px;
+            background: cyan;
             margin: 10px auto 0;
-            box-shadow: 0 0 10px cyan, 0 0 20px cyan; /* Cyan glow */
-            border-radius: 50% 50% 0 0; /* Rounded ends for wavy effect */
+            box-shadow: 0 0 10px cyan, 0 0 20px cyan;
+            border-radius: 50% 50% 0 0;
             position: relative;
-            overflow: hidden; /* Important for the wave animation */
+            overflow: hidden;
         }
 
         .header .underline::before {
@@ -76,16 +76,16 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: cyan; /* Cyan color for the wave itself */
+            background: cyan;
             border-radius: inherit;
-            animation: wave 3s ease-in-out infinite; /* Apply the wave animation */
+            animation: wave 3s ease-in-out infinite;
             box-shadow: inherit;
         }
 
         /* Wavy Underline Animation Keyframes */
         @keyframes wave {
             0%, 100% { transform: translateY(0) scaleY(1); }
-            25% { transform: translateY(-5px) scaleY(0.8); } /* More pronounced vertical shift */
+            25% { transform: translateY(-5px) scaleY(0.8); }
             50% { transform: translateY(0) scaleY(1.2); }
             75% { transform: translateY(5px) scaleY(0.9); }
         }
@@ -122,7 +122,7 @@
         /* Thumbnail Grid Styles - Enhanced & 16:9 Aspect Ratio */
         .thumbnail-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Adjust minmax as needed */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
             justify-items: center;
         }
@@ -166,15 +166,15 @@
             width: 100%;
             padding-bottom: 56.25%; /* 16:9 Aspect Ratio (9 / 16 * 100%) */
             position: relative;
-            border-radius: 15px; /* Rounded corners for the wrapper */
+            border-radius: 15px;
             margin-bottom: 20px;
-            overflow: hidden; /* Hide overflow from image within wrapper */
-            border: 2px solid rgba(0, 255, 255, 0.4); /* Border around image wrapper */
+            overflow: hidden;
+            border: 2px solid rgba(0, 255, 255, 0.4);
             transition: border 0.3s ease;
         }
 
         .grid-item:hover .grid-item-image-wrapper {
-            border-color: cyan; /* Highlight image border on hover */
+            border-color: cyan;
         }
 
         .grid-item img {
@@ -183,9 +183,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures the image fills the 16:9 space */
+            object-fit: cover;
             display: block;
-            border-radius: 0; /* No individual border-radius here, as wrapper has it */
+            border-radius: 0;
         }
 
         .grid-item h3 {
@@ -377,7 +377,7 @@
                 left: 15px;
             }
             .thumbnail-grid {
-                grid-template-columns: 1fr; /* Single column on very small screens */
+                grid-template-columns: 1fr;
                 gap: 25px;
             }
             .grid-item {
@@ -420,12 +420,46 @@
         <i class="fas fa-arrow-left"></i> Back to Portfolio
     </a>
 
-    <canvas id="canvas"></canvas> <div class="container">
+    <canvas id="canvas"></canvas>
+    <div class="container">
         <div class="header">
             <h1>All My Thumbnail Designs</h1>
-            <span class="underline"></span> </div>
+            <span class="underline"></span>
+        </div>
 
         <div class="thumbnail-grid" id="full-thumbnail-grid">
+            <div class="grid-item">
+                <div class="grid-item-image-wrapper">
+                    <img src="https://via.placeholder.com/1280x720/FF5733/FFFFFF?text=My+First+Thumbnail" alt="My First Thumbnail">
+                </div>
+                <h3>My First Thumbnail</h3>
+                <p>This is a description of my very first thumbnail design. It represents my early work and learning process.</p>
+            </div>
+
+            <div class="grid-item">
+                <div class="grid-item-image-wrapper">
+                    <img src="https://via.placeholder.com/1280x720/33FF57/0a0f1b?text=Gaming+Thumbnail+V1" alt="Gaming Thumbnail V1">
+                </div>
+                <h3>Gaming Thumbnail V1</h3>
+                <p>A dynamic thumbnail created for a gaming highlights video. Focus on action and vibrant colors.</p>
+            </div>
+
+            <div class="grid-item">
+                <div class="grid-item-image-wrapper">
+                    <img src="https://via.placeholder.com/1280x720/3357FF/FFFFFF?text=VFX+Breakdown+Thumbnail" alt="VFX Breakdown Thumbnail">
+                </div>
+                <h3>VFX Breakdown Thumbnail</h3>
+                <p>Designed for a visual effects breakdown video, emphasizing the complexity and creativity of the VFX work.</p>
+            </div>
+
+            <div class="grid-item">
+                <div class="grid-item-image-wrapper">
+                    <img src="https://via.placeholder.com/1280x720/FF33CC/0a0f1b?text=Client+Project+XYZ" alt="Client Project XYZ">
+                </div>
+                <h3>Client Project XYZ</h3>
+                <p>A professional thumbnail created for a client's corporate video, focusing on brand identity and clarity.</p>
+            </div>
+
             </div>
     </div>
 
@@ -437,7 +471,10 @@
 
     <script>
         // --- Data for Thumbnails (IMPORTANT: Replace with your actual data) ---
+        // जब आप सीधे HTML में थंबनेल जोड़ रहे हों, तो इस 'allThumbnailsData' Array की आवश्यकता नहीं है।
+        // इसे आप खाली छोड़ सकते हैं या हटा सकते हैं यदि आप JavaScript का उपयोग नहीं कर रहे हैं।
         const allThumbnailsData = [];
+        /*
         for (let i = 1; i <= 50; i++) {
             allThumbnailsData.push({
                 src: `https://via.placeholder.com/1280x720/00FFFF/0a0f1b?text=Thumbnail+Design+${i}`, // Placeholder for 16:9 ratio
@@ -445,18 +482,6 @@
                 description: `This is a detailed description for Thumbnail Design ${i}. It highlights the creative process, client requirements, and software used. This design aims to capture attention and convey the video's essence effectively.`
             });
         }
-        // Add your real thumbnail data here. Example:
-        /*
-        allThumbnailsData.push({
-            src: 'images/my_thumbnail_1.jpg', // Ensure this image is 16:9 ratio for best results
-            title: 'Gaming Channel Intro Thumbnail',
-            description: 'A dynamic design for a gaming YouTube channel, featuring vibrant colors and action elements.'
-        });
-        allThumbnailsData.push({
-            src: 'images/vfx_breakdown_thumbnail.png', // Ensure this image is 16:9 ratio for best results
-            title: 'VFX Breakdown Reel Thumbnail',
-            description: 'Clean and professional thumbnail showcasing complex VFX elements for a breakdown video.'
-        });
         */
 
         const grid = document.getElementById('full-thumbnail-grid');
@@ -465,55 +490,51 @@
         const captionText = document.getElementById('caption');
         const closeBtn = document.getElementsByClassName('close-button')[0];
 
-        function populateGrid() {
-            grid.innerHTML = ''; // Clear existing content
-            allThumbnailsData.forEach((thumb, index) => {
-                const gridItem = document.createElement('div');
-                gridItem.classList.add('grid-item');
-                // Staggered animation delay
-                gridItem.style.animationDelay = `${index * 0.08}s`;
+        // populateGrid() function की अब आवश्यकता नहीं है अगर आप HTML में सीधे थंबनेल जोड़ रहे हैं।
+        // हालाँकि, मॉडल्स को कार्य करने के लिए इवेंट लिसनर्स को मैन्युअल रूप से अटैच करना होगा।
 
-                gridItem.innerHTML = `
-                    <div class="grid-item-image-wrapper">
-                        <img src="${thumb.src}" alt="${thumb.title}">
-                    </div>
-                    <h3>${thumb.title}</h3>
-                    <p>${thumb.description}</p>
-                `;
-                gridItem.addEventListener('click', () => {
-                    modal.style.display = 'block';
-                    modalImg.src = thumb.src;
-                    captionText.innerHTML = `<h3>${thumb.title}</h3><p>${thumb.description}</p>`;
-                });
-                grid.appendChild(gridItem);
+        // *******************************************************************
+        // ******** मॉडल्स के लिए JavaScript (अभी भी आवश्यक है) ********
+        // *******************************************************************
+
+        // थंबनेल ग्रिड में प्रत्येक आइटम के लिए इवेंट लिसनर जोड़ें
+        document.querySelectorAll('.grid-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                const title = item.querySelector('h3').textContent;
+                const description = item.querySelector('p').textContent;
+
+                modal.style.display = 'block';
+                modalImg.src = img.src;
+                captionText.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
             });
-        }
+        });
 
-        // When the user clicks on <span> (x), close the modal
+        // Close button for modal
         closeBtn.onclick = function() {
             modal.style.display = "none";
         }
 
-        // When the user clicks anywhere outside of the modal content, close it
+        // Close modal when clicking outside
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
         }
 
-        // --- Particle Background (Copied from your main page) ---
+        // *******************************************************************
+        // ******** पार्टिकल बैकग्राउंड के लिए JavaScript (अभी भी आवश्यक है) ********
+        // *******************************************************************
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
         let w = canvas.width = window.innerWidth;
         let h = canvas.height = window.innerHeight;
         let particles = [];
-
         function resizeCanvas() {
             w = canvas.width = window.innerWidth;
             h = canvas.height = window.innerHeight;
         }
         window.addEventListener('resize', resizeCanvas);
-
         function createParticle(x, y) {
             particles.push({
                 x, y,
@@ -565,8 +586,8 @@
                     Math.random() * h
                 );
             }
-
-            populateGrid(); // Populate the thumbnail grid
+            // populateGrid() को अब यहाँ से कॉल करने की आवश्यकता नहीं है
+            // क्योंकि थंबनेल सीधे HTML में हैं।
         });
     </script>
 </body>
